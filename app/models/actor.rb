@@ -1,4 +1,4 @@
-Class Actor < ActiveRecord::Base
+class Actor < ActiveRecord::Base
   has_many :characters
   has_many :shows, through: :characters
 
@@ -7,7 +7,7 @@ Class Actor < ActiveRecord::Base
   end
 
   def list_roles
-    characters.map do |character|
+    characters.collect do |character|
       "#{character.name} - #{character.show.name}"
     end
   end
